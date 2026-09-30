@@ -20,6 +20,7 @@ import {
 import { useEffect, useState } from "react";
 
 import resumeAsset from "@/assets/Sabarish-M-Resume.pdf.asset.json";
+import dudaAsset from "@/assets/duda-developer-certified.png.asset.json";
 import mayaAsset from "@/assets/maya-catering.png.asset.json";
 import srmAsset from "@/assets/srm-trichy.png.asset.json";
 import steliosAsset from "@/assets/stelios-restaurant.png.asset.json";
@@ -307,6 +308,13 @@ function Portfolio() {
           <article className="certificate-card">
             <BadgeCheck />
             <div><span>Duda · Issued July 2026</span><h2>Duda Developer Certified</h2><p>Valid through July 2027</p><small>Certificate no. 392439216</small></div>
+            <figure className="certificate-figure">
+              <img
+                src={dudaAsset.url}
+                alt="Duda Developer Certified credential awarded to Sabarish M, certificate no. 392439216, issued by Duda, valid through 2027-07-08"
+                loading="lazy"
+              />
+            </figure>
           </article>
         </div>
         <div className="credential-column">
