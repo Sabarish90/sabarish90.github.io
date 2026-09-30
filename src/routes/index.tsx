@@ -172,7 +172,7 @@ function Portfolio() {
           </nav>
           <div className="header-actions">
             <Button asChild variant="ghost" size="sm" className="desktop-action">
-              <a href="https://linkedin.com/in/sabarish-m" target="_blank" rel="noreferrer"><Linkedin /> LinkedIn</a>
+              <a href="https://www.linkedin.com/in/sabarish-manikandan-55155128b" target="_blank" rel="noreferrer"><Linkedin /> LinkedIn</a>
             </Button>
             <Button asChild size="sm" className="desktop-action">
               <a href={resumeAsset.url} target="_blank" rel="noreferrer"><Download /> Résumé</a>
@@ -186,7 +186,7 @@ function Portfolio() {
           <nav className="mobile-nav" aria-label="Mobile navigation">
             {navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}
             <a href={resumeAsset.url} target="_blank" rel="noreferrer">Download résumé <Download /></a>
-            <a href="https://linkedin.com/in/sabarish-m" target="_blank" rel="noreferrer">LinkedIn <Linkedin /></a>
+            <a href="https://www.linkedin.com/in/sabarish-manikandan-55155128b" target="_blank" rel="noreferrer">LinkedIn <Linkedin /></a>
           </nav>
         ) : null}
       </header>
@@ -205,7 +205,7 @@ function Portfolio() {
           <div className="hero-actions">
             <Button asChild size="lg"><a href="#projects">View my work <ArrowDown /></a></Button>
             <Button asChild variant="outline" size="lg"><a href={resumeAsset.url} target="_blank" rel="noreferrer">Download résumé <Download /></a></Button>
-            <a className="text-link" href="https://linkedin.com/in/sabarish-m" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight /></a>
+            <a className="text-link" href="https://www.linkedin.com/in/sabarish-manikandan-55155128b" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight /></a>
           </div>
         </div>
         <div className="hero-index" aria-hidden="true">01 <span>/ 07</span></div>
@@ -322,7 +322,7 @@ function Portfolio() {
         <p className="contact-intro">I’m open to Web Developer, Front-End Developer and CMS-based web development opportunities.</p>
         <div className="contact-actions">
           <Button asChild size="lg"><a href="mailto:sabari30596sabari@gmail.com"><Mail /> Email me</a></Button>
-          <Button asChild variant="outline" size="lg"><a href="https://linkedin.com/in/sabarish-m" target="_blank" rel="noreferrer"><Linkedin /> Connect on LinkedIn</a></Button>
+          <Button asChild variant="outline" size="lg"><a href="https://www.linkedin.com/in/sabarish-manikandan-55155128b" target="_blank" rel="noreferrer"><Linkedin /> Connect on LinkedIn</a></Button>
           <Button asChild variant="ghost" size="lg"><a href={resumeAsset.url} target="_blank" rel="noreferrer"><Download /> Download résumé</a></Button>
         </div>
         <div className="contact-details">
