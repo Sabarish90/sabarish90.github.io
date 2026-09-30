@@ -81,7 +81,7 @@
 @utility site-header-inner { margin-inline: auto; display: grid; min-height: 4.5rem; max-width: 90rem; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 1rem; padding-inline: clamp(1.25rem,4vw,4rem); }
 @utility wordmark { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; } 
 @utility desktop-nav { display: none; align-items: center; gap: 1.65rem; font-size: .76rem; font-weight: 700; text-transform: uppercase; }
-@utility desktop-action { display: none; }
+@utility desktop-action { display: none !important; }
 @utility wordmark { & span { color: var(--color-electric); } }
 @utility header-actions { display: flex; flex-shrink: 0; align-items: center; gap: .5rem; }
 @utility menu-button { display: inline-flex; }
@@ -170,7 +170,7 @@
 
 @media (min-width: 48rem) {
   .desktop-nav { display: flex; }
-  .desktop-action { display: inline-flex; }
+  .desktop-action { display: inline-flex !important; }
   .menu-button { display: none; }
   .hero-copy { grid-template-columns: 1.2fr 1fr; }
   .section-heading-row { grid-template-columns: minmax(0,1.6fr) minmax(15rem,.7fr); }
