@@ -28,40 +28,39 @@ import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "Sabarish M — Web Developer" },
-      {
-        name: "description",
-        content:
-          "Portfolio of Sabarish M, a Web Developer with 3+ years of experience building responsive websites, custom components and CMS solutions.",
-      },
-      {
-        property: "og:title",
-        content: "Sabarish M — Web Developer",
-      },
-      {
-        property: "og:description",
-        content:
-          "Selected web development work, professional experience and skills of Sabarish M.",
-      },
-      {
-        property: "og:type",
-        content: "website",
-      },
-            {
-        name: "twitter:card",
-        content: "summary_large_image",
-      },
-    ],
-
-    links: [
-      {
-        rel: "icon",
-        href: "/favicon.png",
-        type: "image/png",
-      },
-    ],
-  }),
+  meta: [
+    { title: "Sabarish M — Web Developer" },
+    {
+      name: "description",
+      content:
+        "Portfolio of Sabarish M, a Web Developer with 3+ years of experience building responsive websites, custom components and CMS solutions.",
+    },
+    {
+      property: "og:title",
+      content: "Sabarish M — Web Developer",
+    },
+    {
+      property: "og:description",
+      content:
+        "Selected web development work, professional experience and skills of Sabarish M.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+  ],
+  links: [
+    {
+      rel: "icon",
+      href: "/favicon.png",
+      type: "image/png",
+    },
+  ],
+}),
     ],
   }),
   component: Portfolio,
