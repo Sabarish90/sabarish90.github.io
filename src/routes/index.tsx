@@ -19,11 +19,6 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import dudaAsset from "@/assets/duda-developer-certified.png.asset.json";
-import mayaAsset from "@/assets/maya-catering.png.asset.json";
-import srmAsset from "@/assets/srm-trichy.png.asset.json";
-import steliosAsset from "@/assets/stelios-restaurant.png.asset.json";
-import texcomsAsset from "@/assets/texcoms-worldwide.png.asset.json";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
@@ -146,7 +141,7 @@ const projects = [
     ],
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript", "SEO"],
     url: "https://www.srmtrichy.edu.in/",
-    image: srmAsset.url,
+    image: "/srm-trichy.png",
     alt: "SRM Institute of Science and Technology Trichy website homepage",
   },
   {
@@ -165,7 +160,7 @@ const projects = [
     ],
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript", "EmailJS"],
     url: "https://www.texcomsworldwide.com/",
-    image: texcomsAsset.url,
+    image: "/texcoms-worldwide.png",
     alt: "Texcoms Worldwide corporate website homepage",
   },
   {
@@ -183,7 +178,7 @@ const projects = [
     ],
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript"],
     url: "https://www.steliosrestaurant.com/",
-    image: steliosAsset.url,
+    image: "/stelios-restaurant.png",
     alt: "Stelios Family Restaurant website homepage",
   },
   {
@@ -202,7 +197,7 @@ const projects = [
     ],
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript", "SEO"],
     url: "https://www.mayacater.com/",
-    image: mayaAsset.url,
+    image: "/maya-catering.png",
     alt: "Maya Indian Catering website homepage",
   },
 ] as const;
@@ -637,7 +632,7 @@ function Portfolio() {
 
             <figure className="certificate-figure">
               <img
-                src={dudaAsset.url}
+                src="/duda-certificate.png"
                 alt="Duda Developer Certified credential awarded to Sabarish M, certificate no. 392439216, issued by Duda, valid through 2027-07-08"
                 loading="lazy"
               />
