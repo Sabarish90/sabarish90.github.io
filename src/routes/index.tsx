@@ -61,8 +61,6 @@ export const Route = createFileRoute("/")({
     },
   ],
 }),
-    ],
-  }),
   component: Portfolio,
 });
 
