@@ -1,310 +1,218 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  ArrowDown,
+  ArrowRight,
   ArrowUpRight,
   BadgeCheck,
-  BriefcaseBusiness,
   Code2,
   Download,
-  ExternalLink,
-  Github,
   GraduationCap,
-  Layers3,
   Linkedin,
   Mail,
+  MapPin,
   Menu,
-  Phone,
-  Sparkles,
   X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 
+const LINKEDIN = "https://www.linkedin.com/in/sabarish-manikandan-55155128b";
+const EMAIL = "sabari30596sabari@gmail.com";
+const RESUME = "/Sabarish_M.pdf";
+
+const TITLE = "Sabarish M | Web Developer";
+const DESCRIPTION =
+  "Web Developer with 3+ years of experience in Duda CMS, HTML, CSS, JavaScript, responsive web development, custom widgets, and website optimization.";
+
 export const Route = createFileRoute("/")({
   head: () => ({
-  meta: [
-    { title: "Sabarish M — Web Developer" },
-    {
-      name: "description",
-      content:
-        "Portfolio of Sabarish M, a Web Developer with 3+ years of experience building responsive websites, custom components and CMS solutions.",
-    },
-    {
-      property: "og:title",
-      content: "Sabarish M — Web Developer",
-    },
-    {
-      property: "og:description",
-      content:
-        "Selected web development work, professional experience and skills of Sabarish M.",
-    },
-    {
-      property: "og:type",
-      content: "website",
-    },
-    {
-      name: "twitter:card",
-      content: "summary_large_image",
-    },
-  ],
-  links: [
-    {
-      rel: "icon",
-      href: "/favicon.png",
-      type: "image/png",
-    },
-  ],
-}),
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "icon", href: "/favicon.png", type: "image/png" }],
+  }),
   component: Portfolio,
 });
 
 const navItems = [
+  ["Home", "home"],
   ["About", "about"],
-  ["Skills", "skills"],
   ["Experience", "experience"],
+  ["Skills", "skills"],
   ["Projects", "projects"],
-  ["Certification", "certification"],
   ["Contact", "contact"],
 ] as const;
 
-const skillGroups = [
+const skillGroups: { title: string; skills: [string, string?][] }[] = [
+  { title: "Frontend", skills: [["HTML5"], ["CSS3"], ["JavaScript ES6+"]] },
   {
-    number: "01",
-    title: "Front-end development",
-    skills: [
-      "HTML5",
-      "CSS3",
-      "JavaScript ES6+",
-      "Responsive Web Design",
-      "Mobile-First Design",
-      "Cross-Browser Compatibility",
-    ],
+    title: "CMS / Website Platforms",
+    skills: [["Duda CMS / Duda Website Builder"], ["WordPress", "Learning"]],
+  },
+  { title: "Backend / Database", skills: [["PHP", "Basic"], ["MySQL", "Basic"]] },
+  {
+    title: "Integrations",
+    skills: [["REST APIs"], ["EmailJS"], ["Google Sheets"], ["Airtable"], ["Zapier"]],
   },
   {
-    number: "02",
-    title: "CMS & platforms",
+    title: "Other",
     skills: [
-      "Duda CMS",
-      "Duda Website Builder",
-      "WordPress — developing knowledge",
-      "CMS Management",
-      "Website Maintenance",
+      ["Responsive Design"],
+      ["Cross-Browser Compatibility"],
+      ["SEO"],
+      ["Core Web Vitals"],
+      ["Git"],
+      ["QA / Testing"],
     ],
   },
-  {
-    number: "03",
-    title: "Web development",
-    skills: [
-      "Website Customization",
-      "Custom Widgets",
-      "Reusable Components",
-      "API Integration",
-      "EmailJS",
-      "Google Sheets",
-      "Airtable",
-      "Zapier Automation",
-    ],
-  },
-  {
-    number: "04",
-    title: "SEO, performance & tools",
-    skills: [
-      "On-Page SEO",
-      "Core Web Vitals",
-      "Page Speed Optimization",
-      "Technical SEO",
-      "Google Analytics",
-      "Git",
-      "QA Testing",
-      "Agile Delivery",
-      "PHP — basic",
-      "MySQL — basic",
-    ],
-  },
-] as const;
+];
+
+const achievements = [
+  "Designed and developed 15+ responsive business websites.",
+  "Built and maintained 20+ custom HTML, CSS and JavaScript widgets and reusable components.",
+  "Customized and managed production websites on Duda CMS, including ongoing maintenance.",
+  "Integrated APIs and forms using EmailJS, Google Sheets, Airtable and Zapier.",
+  "Optimized page speed, Core Web Vitals and on-page SEO.",
+  "Collaborated directly with clients across India and Australia on requirements and feedback.",
+];
 
 const projects = [
   {
-    number: "01",
-    name: "SRM Institute of Science and Technology — Trichy",
+    name: "SRM College, Trichy",
     category: "Institutional website",
     description:
       "A large institutional website with responsive layouts, structured department content, performance optimization and SEO considerations.",
-    contribution: [
-      "Website development",
-      "Responsive layouts",
-      "Website customization",
-      "Content structure",
-      "Performance optimization",
-      "SEO",
-    ],
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript", "SEO"],
     url: "https://www.srmtrichy.edu.in/",
     image: "/srm-trichy.png",
-    alt: "SRM Institute of Science and Technology Trichy website homepage",
+    alt: "SRM Institute of Science and Technology, Trichy website homepage",
   },
   {
-    number: "02",
     name: "Texcoms Worldwide",
     category: "Corporate / B2B website",
     description:
-      "A professional corporate website for a textile solutions company with structured content, responsive layouts and custom components.",
-    contribution: [
-      "Website development",
-      "Responsive UI",
-      "Custom components",
-      "Contact form integration",
-      "EmailJS",
-      "SEO & performance",
-    ],
+      "A professional corporate website for a textile solutions company with structured content, responsive layouts, custom components and an EmailJS contact form.",
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript", "EmailJS"],
     url: "https://www.texcomsworldwide.com/",
     image: "/texcoms-worldwide.png",
     alt: "Texcoms Worldwide corporate website homepage",
   },
   {
-    number: "03",
     name: "Stelios Restaurant",
     category: "Restaurant website",
     description:
       "A responsive restaurant website focused on services, menu information and catering options through a mobile-friendly experience.",
-    contribution: [
-      "Website development",
-      "Responsive UI",
-      "Mobile optimization",
-      "Website customization",
-      "Content implementation",
-    ],
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript"],
     url: "https://www.steliosrestaurant.com/",
     image: "/stelios-restaurant.png",
     alt: "Stelios Family Restaurant website homepage",
   },
   {
-    number: "04",
     name: "Maya Indian Catering",
     category: "Business / catering website",
     description:
       "A service-focused catering website presenting menus and inquiry options through a responsive, conversion-focused experience.",
-    contribution: [
-      "Website development",
-      "Responsive design",
-      "Landing page development",
-      "Inquiry forms",
-      "Website customization",
-      "On-page SEO",
-    ],
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript", "SEO"],
     url: "https://www.mayacater.com/",
     image: "/maya-catering.png",
     alt: "Maya Indian Catering website homepage",
   },
-] as const;
+];
 
-const components = [
-  [Sparkles, "Animated hero sections"],
-  [Layers3, "Testimonials"],
-  [ArrowUpRight, "Statistics counters"],
-  [Mail, "Contact forms"],
-  [Code2, "Custom footers"],
-  [BriefcaseBusiness, "Lead generation forms"],
-  [Github, "HTML / CSS / JavaScript widgets"],
-] as const;
+const widgets = [
+  "Custom HTML / CSS / JavaScript widgets",
+  "Animated sections",
+  "Counters",
+  "Scroll reveal effects",
+  "Forms",
+  "Searchable country dropdown",
+  "API integrations",
+  "Reusable website components",
+];
 
-function SectionHeading({
-  eyebrow,
-  title,
-  intro,
-}: {
-  eyebrow: string;
-  title: string;
-  intro?: string;
-}) {
+function SectionTitle({ index, label, title }: { index: string; label: string; title: string }) {
   return (
-    <div className="section-heading">
-      <p className="eyebrow">{eyebrow}</p>
-
-      <div className="section-heading-row">
-        <h2>{title}</h2>
-        {intro ? <p>{intro}</p> : null}
-      </div>
+    <div className="mb-12 md:mb-16">
+      <p className="mono-label">
+        {index}. {label}
+      </p>
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">{title}</h2>
     </div>
   );
 }
 
 function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const reveal = new IntersectionObserver(
       (entries) =>
-        entries.forEach(
-          (entry) =>
-            entry.isIntersecting &&
-            entry.target.classList.add("is-visible"),
-        ),
+        entries.forEach((e) => e.isIntersecting && e.target.classList.add("is-visible")),
       { threshold: 0.12 },
     );
+    document.querySelectorAll(".reveal").forEach((el) => reveal.observe(el));
 
-    document
-      .querySelectorAll(".reveal")
-      .forEach((element) => reveal.observe(element));
+    const spy = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    navItems.forEach(([, id]) => {
+      const el = document.getElementById(id);
+      if (el) spy.observe(el);
+    });
 
-    return () => reveal.disconnect();
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      reveal.disconnect();
+      spy.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
-    <main id="home" className="portfolio-shell">
-      <header className="site-header">
-        <div className="site-header-inner">
-          <a
-            className="wordmark"
-            href="#home"
-            aria-label="Sabarish M, home"
-          >
-            SM<span>.</span>
+    <div className="min-h-screen overflow-x-clip bg-background text-foreground">
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+          scrolled || menuOpen
+            ? "border-b border-border bg-background/85 backdrop-blur-xl"
+            : "border-b border-transparent"
+        }`}
+      >
+        <div className="container-x flex h-16 items-center justify-between gap-4">
+          <a href="#home" className="font-display text-lg font-bold" aria-label="Sabarish M, home">
+            <span className="text-primary">&lt;</span>Sabarish
+            <span className="text-primary"> /&gt;</span>
           </a>
 
-          <nav className="desktop-nav" aria-label="Primary navigation">
+          <nav className="hidden items-center gap-7 md:flex" aria-label="Primary navigation">
             {navItems.map(([label, id]) => (
-              <a key={id} href={`#${id}`}>
+              <a key={id} href={`#${id}`} className="nav-link" data-active={active === id}>
                 {label}
               </a>
             ))}
           </nav>
 
-          <div className="header-actions">
-            <Button
-              asChild
-              variant="ghost"
-              size="sm"
-              className="desktop-action"
-            >
-              <a
-                href="https://www.linkedin.com/in/sabarish-manikandan-55155128b"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Linkedin /> LinkedIn
+          <div className="flex items-center gap-2">
+            <Button asChild size="sm" className="hidden md:inline-flex">
+              <a href={RESUME} target="_blank" rel="noreferrer">
+                <Download /> Resume
               </a>
             </Button>
-
-            <Button asChild size="sm" className="desktop-action">
-              <a
-                href="/Sabarish_M.pdf"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Download /> Résumé
-              </a>
-            </Button>
-
             <Button
               variant="outline"
               size="icon"
-              className="menu-button"
-              onClick={() => setMenuOpen((open) => !open)}
+              className="md:hidden"
+              onClick={() => setMenuOpen((o) => !o)}
               aria-expanded={menuOpen}
               aria-label="Toggle navigation"
             >
@@ -314,427 +222,373 @@ function Portfolio() {
         </div>
 
         {menuOpen ? (
-          <nav className="mobile-nav" aria-label="Mobile navigation">
+          <nav className="container-x grid pb-5 md:hidden" aria-label="Mobile navigation">
             {navItems.map(([label, id]) => (
               <a
                 key={id}
                 href={`#${id}`}
                 onClick={() => setMenuOpen(false)}
+                className={`border-b border-border py-3 text-sm font-semibold ${
+                  active === id ? "text-primary" : "text-muted-foreground"
+                }`}
               >
                 {label}
               </a>
             ))}
-
-            <a
-              href="/Sabarish_M.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Download résumé <Download />
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/sabarish-manikandan-55155128b"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn <Linkedin />
-            </a>
+            <div className="mt-4 flex gap-2">
+              <Button asChild size="sm">
+                <a href={RESUME} target="_blank" rel="noreferrer">
+                  <Download /> Resume
+                </a>
+              </Button>
+              <Button asChild size="sm" variant="outline">
+                <a href={LINKEDIN} target="_blank" rel="noreferrer">
+                  <Linkedin /> LinkedIn
+                </a>
+              </Button>
+            </div>
           </nav>
         ) : null}
       </header>
 
-      <section className="hero-section">
-        <div className="hero-grid-line hero-line-one" />
-        <div className="hero-grid-line hero-line-two" />
-
-        <div className="hero-content reveal is-visible">
-          <div className="availability">
-            <span /> Open to web development opportunities
-          </div>
-
-          <p className="hero-kicker">Hello, I’m Sabarish M</p>
-
-          <h1>
-            WEB
-            <br />
-            <span>DEVELOPER</span>
-          </h1>
-
-          <div className="hero-copy">
-            <p>
-              Building responsive, modern and user-focused websites using
-              front-end technologies and CMS platforms.
-            </p>
-
-            <p>
-              3+ years of professional experience in web development,
-              responsive websites, CMS platforms, custom components and web
-              integrations.
-            </p>
-          </div>
-
-          <div className="hero-actions">
-            <Button asChild size="lg">
-              <a href="#projects">
-                View my work <ArrowDown />
-              </a>
-            </Button>
-
-            <Button asChild variant="outline" size="lg">
-              <a
-                href="/Sabarish_M.pdf"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Download résumé <Download />
-              </a>
-            </Button>
-
-            <a
-              className="text-link"
-              href="https://www.linkedin.com/in/sabarish-manikandan-55155128b"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn <ArrowUpRight />
-            </a>
-          </div>
-        </div>
-
-        <div className="hero-index" aria-hidden="true">
-          01 <span>/ 07</span>
-        </div>
-      </section>
-
-      <section id="about" className="section light-section reveal">
-        <SectionHeading
-          eyebrow="About"
-          title="Engineering the web with clarity and purpose."
-        />
-
-        <div className="about-grid">
-          <div className="about-lead">
-            <p>
-              I am a Web Developer with 3+ years of hands-on experience
-              building responsive business websites, custom web components
-              and CMS-based websites.
-            </p>
-          </div>
-
-          <div className="about-detail">
-            <p>
-              My work brings together HTML5, CSS3 and JavaScript with
-              responsive design, custom widgets, API integrations and CMS
-              platforms—including professional experience with Duda.
-            </p>
-
-            <p>
-              I also focus on EmailJS integrations, on-page SEO, Core Web
-              Vitals and dependable website maintenance. I’m currently
-              developing hands-on WordPress knowledge alongside PHP and MySQL
-              fundamentals.
-            </p>
-
-            <div className="fact-row">
-              <div>
-                <strong>3+</strong>
-                <span>Years in web development</span>
-              </div>
-
-              <div>
-                <strong>15+</strong>
-                <span>Responsive websites delivered</span>
-              </div>
-
-              <div>
-                <strong>20+</strong>
-                <span>Custom widgets maintained</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" className="section dark-section reveal">
-        <SectionHeading
-          eyebrow="Capabilities"
-          title="A practical toolkit for production-ready websites."
-          intro="Focused skills, applied through real client work—not percentage bars."
-        />
-
-        <div className="skills-grid">
-          {skillGroups.map((group) => (
-            <article className="skill-group" key={group.number}>
-              <span className="skill-number">{group.number}</span>
-
-              <h3>{group.title}</h3>
-
-              <div className="tag-list">
-                {group.skills.map((skill) => (
-                  <span key={skill}>{skill}</span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="experience" className="section light-section reveal">
-        <SectionHeading
-          eyebrow="Experience"
-          title="Three years of turning requirements into reliable websites."
-        />
-
-        <div className="experience-grid">
-          <div className="experience-meta">
-            <span className="timeline-dot" />
-
-            <p>2022 — Present</p>
-
-            <h3>Web Developer</h3>
-
-            <p>Yectra Technologies</p>
-
-            <p>Coimbatore, Tamil Nadu, India</p>
-          </div>
-
-          <div className="achievement-grid">
-            {[
-              "Designed and developed 15+ responsive business websites.",
-              "Built and maintained 20+ custom HTML, CSS and JavaScript widgets.",
-              "Developed custom animated website components and landing pages.",
-              "Built contact forms with EmailJS and international phone validation.",
-              "Worked directly with clients across India and Australia.",
-              "Optimized page speed, Core Web Vitals and on-page SEO.",
-              "Performed ongoing website maintenance and technical support.",
-              "Gathered requirements and iterated through client feedback cycles.",
-            ].map((item, index) => (
-              <div className="achievement" key={item}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <p>{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" className="section projects-section reveal">
-        <SectionHeading
-          eyebrow="Selected work"
-          title="Four websites. Four distinct business needs."
-          intro="Real projects presented with the original website screenshots."
-        />
-
-        <div className="project-list">
-          {projects.map((project, index) => (
-            <article
-              className={`project-case ${
-                index % 2 ? "project-reverse" : ""
-              }`}
-              key={project.name}
-            >
-              <a
-                className="project-visual"
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`View ${project.name} live website`}
-              >
-                <img src={project.image} alt={project.alt} />
-
-                <span>
-                  View live website <ArrowUpRight />
-                </span>
-              </a>
-
-              <div className="project-copy">
-                <div className="project-label">
-                  <span>{project.number}</span>
-                  <p>{project.category}</p>
-                </div>
-
-                <h3>{project.name}</h3>
-
-                <p className="project-description">
-                  {project.description}
-                </p>
-
-                <h4>My contribution</h4>
-
-                <ul>
-                  {project.contribution.map((item) => (
-                    <li key={item}>
-                      <span />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="project-tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-
-                <Button asChild variant="outline">
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View live website <ExternalLink />
+      <main>
+        {/* HERO */}
+        <section id="home" className="hero-bg relative flex min-h-[100svh] items-center pt-16">
+          <div className="grid-dots pointer-events-none absolute inset-0" aria-hidden="true" />
+          <div className="container-x relative grid items-center gap-14 py-16 lg:grid-cols-[1.25fr_1fr]">
+            <div className="reveal is-visible">
+              <p className="mono-label">Hi, I'm Sabarish 👋</p>
+              <h1 className="mt-5 text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+                <span className="text-gradient">Web Developer</span>
+                <span className="blink text-primary">_</span>
+              </h1>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                Web Developer with 3+ years of experience building responsive and user-focused
+                websites using Duda CMS, HTML, CSS, and JavaScript.
+              </p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Button asChild size="lg">
+                  <a href="#projects">
+                    View Projects <ArrowRight />
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <a href={RESUME} target="_blank" rel="noreferrer">
+                    <Download /> Download Resume
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="ghost">
+                  <a href={LINKEDIN} target="_blank" rel="noreferrer">
+                    <Linkedin /> LinkedIn
                   </a>
                 </Button>
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section components-section reveal">
-        <SectionHeading
-          eyebrow="Custom web components"
-          title="20+ reusable components built and maintained."
-          intro="Scoped, practical HTML, CSS and JavaScript solutions that extend native CMS capabilities."
-        />
-
-        <div className="component-grid">
-          {components.map(([Icon, title], index) => (
-            <article className="component-item" key={title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <Icon />
-              <h3>{title}</h3>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section
-        id="certification"
-        className="section credentials-section reveal"
-      >
-        <div className="credential-column">
-          <p className="eyebrow">Certification</p>
-
-          <article className="certificate-card">
-            <BadgeCheck />
-
-            <div>
-              <span>Duda · Issued July 2026</span>
-
-              <h2>Duda Developer Certified</h2>
-
-              <p>Valid through July 2027</p>
-
-              <small>Certificate no. 392439216</small>
+              <p className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
+                <MapPin className="size-4 text-primary" /> Coimbatore, Tamil Nadu, India
+              </p>
             </div>
 
-            <figure className="certificate-figure">
-              <img
-                src="/duda-certificate.png"
-                alt="Duda Developer Certified credential awarded to Sabarish M, certificate no. 392439216, issued by Duda, valid through 2027-07-08"
-                loading="lazy"
-              />
-            </figure>
-          </article>
-        </div>
-
-        <div className="credential-column">
-          <p className="eyebrow">Education</p>
-
-          <article className="education-item">
-            <GraduationCap />
-
-            <div>
-              <h3>Master of Computer Applications</h3>
-              <p>Bharathiar University, Tamil Nadu</p>
-              <span>In progress · Expected 2026</span>
+            <div className="reveal is-visible card-surface hidden overflow-hidden font-mono text-sm lg:block">
+              <div className="flex items-center gap-2 border-b border-border px-4 py-3">
+                <span className="size-3 rounded-full bg-destructive/80" />
+                <span className="size-3 rounded-full bg-accent/80" />
+                <span className="size-3 rounded-full bg-primary/80" />
+                <span className="ml-3 text-xs text-muted-foreground">sabarish.js</span>
+              </div>
+              <pre className="overflow-x-auto p-6 leading-7 text-muted-foreground">
+                <code>
+                  <span className="text-accent">const</span> developer = {"{"}
+                  {"\n"}  name: <span className="text-primary">"Sabarish M"</span>,
+                  {"\n"}  role: <span className="text-primary">"Web Developer"</span>,
+                  {"\n"}  experience: <span className="text-primary">"3+ years"</span>,
+                  {"\n"}  stack: [<span className="text-primary">"HTML5"</span>,{" "}
+                  <span className="text-primary">"CSS3"</span>,{" "}
+                  <span className="text-primary">"JavaScript"</span>],
+                  {"\n"}  cms: [<span className="text-primary">"Duda"</span>,{" "}
+                  <span className="text-primary">"WordPress"</span>],
+                  {"\n"}  focus: <span className="text-primary">"responsive, fast, SEO-ready"</span>,
+                  {"\n"}{"}"};
+                </code>
+              </pre>
             </div>
-          </article>
+          </div>
+        </section>
 
-          <article className="education-item">
-            <GraduationCap />
-
-            <div>
-              <h3>B.Sc Computer Science</h3>
-              <p>Tamil Nadu, India</p>
-              <span>2016</span>
+        {/* ABOUT */}
+        <section id="about" className="section-pad border-t border-border bg-surface">
+          <div className="container-x reveal">
+            <SectionTitle index="01" label="About" title="About me" />
+            <div className="grid gap-10 md:grid-cols-[1.4fr_1fr]">
+              <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
+                <p>
+                  I'm a <span className="text-foreground">Web Developer with 3+ years</span> of
+                  hands-on experience building responsive, mobile-first business websites using
+                  HTML5, CSS3 and JavaScript ES6+.
+                </p>
+                <p>
+                  Much of my work is on <span className="text-foreground">Duda CMS / Duda Website
+                  Builder</span>, where I create custom widgets and reusable components, integrate
+                  APIs and handle ongoing website maintenance.
+                </p>
+                <p>
+                  I also focus on SEO and Core Web Vitals so the websites I build stay fast and
+                  discoverable.
+                </p>
+              </div>
+              <div className="grid grid-cols-3 gap-3 self-start md:grid-cols-1">
+                {[
+                  ["3+", "Years of experience"],
+                  ["15+", "Responsive websites"],
+                  ["20+", "Custom widgets"],
+                ].map(([n, l]) => (
+                  <div key={l} className="card-surface card-hover p-5">
+                    <p className="font-display text-3xl font-bold text-gradient">{n}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{l}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </article>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section id="contact" className="contact-section reveal">
-        <p className="eyebrow">Contact</p>
+        {/* EXPERIENCE */}
+        <section id="experience" className="section-pad">
+          <div className="container-x reveal">
+            <SectionTitle index="02" label="Experience" title="Where I've worked" />
+            <div className="relative border-l border-border pl-8 md:pl-12">
+              <span className="absolute -left-[7px] top-2 size-3.5 rounded-full bg-primary shadow-[0_0_0_6px_var(--glow)]" />
+              <div className="card-surface p-6 md:p-9">
+                <div className="flex flex-wrap items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl font-semibold md:text-2xl">
+                      Web Developer{" "}
+                      <span className="text-muted-foreground">— Duda CMS &amp; Platform Developer</span>
+                    </h3>
+                    <p className="mt-1 font-semibold text-primary">Yectra Technologies</p>
+                    <p className="mt-1 text-sm text-muted-foreground">Coimbatore, Tamil Nadu</p>
+                  </div>
+                  <span className="chip font-mono">2022 – Present</span>
+                </div>
+                <ul className="mt-7 grid gap-4 md:grid-cols-2">
+                  {achievements.map((a) => (
+                    <li key={a} className="flex gap-3 text-muted-foreground">
+                      <span className="mt-1 text-primary">▹</span>
+                      <span className="leading-relaxed">{a}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <h2>
-          LET’S <span>CONNECT.</span>
-        </h2>
+        {/* SKILLS */}
+        <section id="skills" className="section-pad border-y border-border bg-surface">
+          <div className="container-x reveal">
+            <SectionTitle index="03" label="Skills" title="Tools & technologies" />
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {skillGroups.map((g) => (
+                <article key={g.title} className="card-surface card-hover p-6">
+                  <h3 className="flex items-center gap-2 text-lg font-semibold">
+                    <Code2 className="size-5 text-primary" /> {g.title}
+                  </h3>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {g.skills.map(([s, level]) => (
+                      <span key={s} className="chip">
+                        {s}
+                        {level ? (
+                          <span className="rounded-full bg-accent/15 px-1.5 text-[0.68rem] text-accent">
+                            {level}
+                          </span>
+                        ) : null}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-        <p className="contact-intro">
-          I’m open to Web Developer, Front-End Developer and CMS-based web
-          development opportunities.
-        </p>
+        {/* PROJECTS */}
+        <section id="projects" className="section-pad">
+          <div className="container-x">
+            <div className="reveal">
+              <SectionTitle index="04" label="Projects" title="Featured projects" />
+            </div>
+            <div className="grid gap-20 md:gap-28">
+              {projects.map((p, i) => (
+                <article
+                  key={p.name}
+                  className="reveal grid items-center gap-8 md:grid-cols-12"
+                >
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${p.name} website`}
+                    className={`group card-surface block overflow-hidden md:col-span-7 ${
+                      i % 2 ? "md:order-2" : ""
+                    }`}
+                  >
+                    <img
+                      src={p.image}
+                      alt={p.alt}
+                      loading="lazy"
+                      className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  </a>
+                  <div className={`md:col-span-5 ${i % 2 ? "md:order-1" : ""}`}>
+                    <p className="mono-label">
+                      {String(i + 1).padStart(2, "0")} · {p.category}
+                    </p>
+                    <h3 className="mt-3 text-2xl font-semibold md:text-3xl">{p.name}</h3>
+                    <p className="mt-4 rounded-xl border border-border bg-card p-5 leading-relaxed text-muted-foreground">
+                      {p.description}
+                    </p>
+                    <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-muted-foreground">
+                      {p.tags.map((t) => (
+                        <li key={t}>{t}</li>
+                      ))}
+                    </ul>
+                    <Button asChild variant="outline" className="mt-6">
+                      <a href={p.url} target="_blank" rel="noreferrer">
+                        View Website <ArrowUpRight />
+                      </a>
+                    </Button>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-        <div className="contact-actions">
-          <Button asChild size="lg">
-            <a href="mailto:sabari30596sabari@gmail.com">
-              <Mail /> Email me
+        {/* WIDGETS */}
+        <section className="section-pad border-y border-border bg-surface" aria-labelledby="widgets-title">
+          <div className="container-x reveal">
+            <div className="mb-12 md:mb-16">
+              <p className="mono-label">05. Custom work</p>
+              <h2 id="widgets-title" className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+                Custom components &amp; widgets
+              </h2>
+              <p className="mt-4 max-w-2xl text-muted-foreground">
+                Hand-built HTML, CSS and JavaScript solutions that extend what the CMS offers out of
+                the box.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {widgets.map((w, i) => (
+                <div key={w} className="card-surface card-hover p-5">
+                  <span className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</span>
+                  <p className="mt-6 font-display font-semibold leading-snug">{w}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CERTIFICATION + EDUCATION */}
+        <section id="certification" className="section-pad">
+          <div className="container-x grid gap-12 lg:grid-cols-[1.2fr_1fr]">
+            <div className="reveal">
+              <p className="mono-label">06. Certification</p>
+              <article className="card-surface mt-6 overflow-hidden">
+                <div className="flex items-start gap-4 p-6 md:p-8">
+                  <BadgeCheck className="size-8 shrink-0 text-primary" />
+                  <div>
+                    <h2 className="text-2xl font-semibold">Duda Developer Certified</h2>
+                    <p className="mt-1 text-muted-foreground">Duda · Issued July 2026</p>
+                    <p className="text-sm text-muted-foreground">Valid through July 2027</p>
+                  </div>
+                </div>
+                <div className="border-t border-border bg-foreground/95 p-3">
+                  <img
+                    src="/duda-certificate.png"
+                    alt="Duda Developer Certified credential issued by Duda to Sabarish M, valid through July 2027"
+                    loading="lazy"
+                    className="mx-auto block h-auto w-full max-w-md"
+                  />
+                </div>
+              </article>
+            </div>
+
+            <div className="reveal">
+              <p className="mono-label">07. Education</p>
+              <div className="mt-6 grid gap-4">
+                {[
+                  ["MCA", "Bharathiar University", "In Progress · Expected 2026"],
+                  ["B.Sc Computer Science", "Tamil Nadu", "Completed"],
+                ].map(([deg, inst, when]) => (
+                  <article key={deg} className="card-surface card-hover flex gap-4 p-6">
+                    <GraduationCap className="size-6 shrink-0 text-primary" />
+                    <div>
+                      <h3 className="text-lg font-semibold">{deg}</h3>
+                      <p className="text-muted-foreground">{inst}</p>
+                      <p className="mt-2 font-mono text-xs text-accent">{when}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CONTACT */}
+        <section id="contact" className="section-pad hero-bg border-t border-border">
+          <div className="container-x reveal text-center">
+            <p className="mono-label">08. What's next?</p>
+            <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
+              Let's <span className="text-gradient">work together</span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">
+              I'm open to Web Developer, Front-End Developer and CMS Web Developer roles. My inbox
+              is always open.
+            </p>
+            <div className="mt-9 flex flex-wrap justify-center gap-3">
+              <Button asChild size="lg">
+                <a href={`mailto:${EMAIL}`}>
+                  <Mail /> Say hello
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href={LINKEDIN} target="_blank" rel="noreferrer">
+                  <Linkedin /> LinkedIn
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="ghost">
+                <a href={RESUME} target="_blank" rel="noreferrer">
+                  <Download /> Download Resume
+                </a>
+              </Button>
+            </div>
+            <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-muted-foreground">
+              <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 hover:text-primary">
+                <Mail className="size-4 text-primary" /> {EMAIL}
+              </a>
+              <span className="flex items-center gap-2">
+                <MapPin className="size-4 text-primary" /> Coimbatore, Tamil Nadu, India
+              </span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-border">
+        <div className="container-x flex flex-col items-center justify-between gap-4 py-8 text-sm text-muted-foreground md:flex-row">
+          <p>
+            <span className="font-display font-semibold text-foreground">Sabarish M</span> · Web
+            Developer
+          </p>
+          <nav className="flex gap-6" aria-label="Footer">
+            <a href={LINKEDIN} target="_blank" rel="noreferrer" className="hover:text-primary">
+              LinkedIn
             </a>
-          </Button>
-
-          <Button asChild variant="outline" size="lg">
-            <a
-              href="https://www.linkedin.com/in/sabarish-manikandan-55155128b"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Linkedin /> Connect on LinkedIn
+            <a href={`mailto:${EMAIL}`} className="hover:text-primary">
+              Email
             </a>
-          </Button>
-
-          <Button asChild variant="ghost" size="lg">
-            <a
-              href="/Sabarish_M.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Download /> Download résumé
-            </a>
-          </Button>
+          </nav>
         </div>
-
-        <div className="contact-details">
-          <a href="mailto:sabari30596sabari@gmail.com">
-            <Mail /> sabari30596sabari@gmail.com
-          </a>
-
-          <a href="tel:+916369425065">
-            <Phone /> +91 63694 25065
-          </a>
-        </div>
-      </section>
-
-      <footer>
-        <div>
-          <a className="wordmark" href="#home">
-            SM<span>.</span>
-          </a>
-
-          <p>Sabarish M · Web Developer</p>
-        </div>
-
-        <nav aria-label="Footer navigation">
-          {navItems.map(([label, id]) => (
-            <a key={id} href={`#${id}`}>
-              {label}
-            </a>
-          ))}
-        </nav>
-
-        <p>© 2026 Sabarish M. All rights reserved.</p>
       </footer>
-    </main>
+    </div>
   );
 }
