@@ -34,6 +34,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Copy resume to deployment
+        run: cp public/Sabarish_M_Web_Developer_Resume.pdf dist/client/Sabarish_M_Web_Developer_Resume.pdf
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
