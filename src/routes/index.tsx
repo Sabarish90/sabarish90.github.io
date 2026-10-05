@@ -271,7 +271,7 @@ function Portfolio() {
           <div className="grid-dots pointer-events-none absolute inset-0" aria-hidden="true" />
           <div className="container-x relative grid items-center gap-10 py-12 md:grid-cols-[1.2fr_1fr] md:gap-8 lg:gap-14 lg:py-16">
             <div className="reveal is-visible min-w-0">
-              <p className="mono-label">Hi, I'm Sabarish 👋</p>
+              <p className="mono-label">Hi, I'm Sabarish</p>
               <h1 className="mt-5 text-[2.6rem] font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-[3.2rem] lg:text-7xl">
                 <span className="text-gradient">Web Developer</span>
                 <span className="blink text-primary">_</span>
