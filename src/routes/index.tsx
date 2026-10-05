@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
+  Github,
   ArrowUpRight,
   BadgeCheck,
   Code2,
@@ -19,6 +20,7 @@ import { Button } from "@/components/ui/button";
 const LINKEDIN = "https://www.linkedin.com/in/sabarish-manikandan-55155128b";
 const EMAIL = "sabari30596sabari@gmail.com";
 const RESUME = "/Sabarish_M.pdf";
+const GITHUB = "https://github.com/Sabarish90";
 
 const TITLE = "Sabarish M | Web Developer";
 const DESCRIPTION =
@@ -52,7 +54,7 @@ const skillGroups: { title: string; skills: [string, string?][] }[] = [
   { title: "Frontend", skills: [["HTML5"], ["CSS3"], ["JavaScript ES6+"]] },
   {
     title: "CMS / Website Platforms",
-    skills: [["Duda CMS / Duda Website Builder"], ["WordPress", "Learning"]],
+    skills: [["Duda CMS / Duda Website Builder"], ["WordPress", "Working knowledge"], ["Web Publishing"], ["Website Maintenance"]],
   },
   { title: "Backend / Database", skills: [["PHP", "Basic"], ["MySQL", "Basic"]] },
   {
@@ -73,12 +75,14 @@ const skillGroups: { title: string; skills: [string, string?][] }[] = [
 ];
 
 const achievements = [
-  "Designed and developed 15+ responsive business websites.",
-  "Built and maintained 20+ custom HTML, CSS and JavaScript widgets and reusable components.",
-  "Customized and managed production websites on Duda CMS, including ongoing maintenance.",
-  "Integrated APIs and forms using EmailJS, Google Sheets, Airtable and Zapier.",
-  "Optimized page speed, Core Web Vitals and on-page SEO.",
-  "Collaborated directly with clients across India and Australia on requirements and feedback.",
+  "Developed and published 15+ responsive business websites for clients in India and Australia.",
+  "Built 20+ custom HTML/CSS/JavaScript widgets — animated hero sections, testimonials, stats counters, contact forms and footers — to extend Duda CMS.",
+  "Managed the full website workflow: create, customize, update, QA, publish and maintain.",
+  "Built a production homepage with 13 content sections, animated counters and scroll-reveal effects.",
+  "Built an EmailJS contact form widget with a searchable 195-country dropdown and real-time validation.",
+  "Built a pricing-automation prototype with Google Sheets, Airtable and Zapier.",
+  "Optimized page speed, Core Web Vitals and on-page SEO; ran responsive and cross-browser testing.",
+  "Maintained client websites with content updates, layout changes and first-line technical support.",
 ];
 
 const projects = [
@@ -96,7 +100,7 @@ const projects = [
     name: "Texcoms Worldwide",
     category: "Corporate / B2B website",
     description:
-      "A professional corporate website for a textile solutions company with structured content, responsive layouts, custom components and an EmailJS contact form.",
+      "B2B machinery website with product catalogue, company profile, and a custom EmailJS contact form with international phone and country validation.",
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript", "EmailJS"],
     url: "https://www.texcomsworldwide.com/",
     image: "/texcoms-worldwide.png",
@@ -106,7 +110,7 @@ const projects = [
     name: "Stelios Restaurant",
     category: "Restaurant website",
     description:
-      "A responsive restaurant website focused on services, menu information and catering options through a mobile-friendly experience.",
+      "Restaurant website with dynamic menu showcases and a mobile-optimized UI.",
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript"],
     url: "https://www.steliosrestaurant.com/",
     image: "/stelios-restaurant.png",
@@ -121,6 +125,16 @@ const projects = [
     url: "https://www.mayacater.com/",
     image: "/maya-catering.png",
     alt: "Maya Indian Catering website homepage",
+  },
+  {
+    name: "US Electronics",
+    category: "Corporate electronics website",
+    description:
+      "Corporate electronics website showcasing electronic components, custom power solutions, rechargeable battery systems, displays, and engineering-focused product solutions.",
+    tags: [] as string[],
+    url: "https://www.us-electronics.com/",
+    image: "/us-electronics.png",
+    alt: "US Electronics website homepage",
   },
 ];
 
@@ -204,7 +218,7 @@ function Portfolio() {
 
           <div className="flex items-center gap-2">
             <Button asChild size="sm" className="hidden md:inline-flex">
-              <a href={RESUME} target="_blank" rel="noreferrer">
+              <a href={RESUME} target="_blank" rel="noopener noreferrer">
                 <Download /> Resume
               </a>
             </Button>
@@ -237,12 +251,12 @@ function Portfolio() {
             ))}
             <div className="mt-4 flex gap-2">
               <Button asChild size="sm">
-                <a href={RESUME} target="_blank" rel="noreferrer">
+                <a href={RESUME} target="_blank" rel="noopener noreferrer">
                   <Download /> Resume
                 </a>
               </Button>
               <Button asChild size="sm" variant="outline">
-                <a href={LINKEDIN} target="_blank" rel="noreferrer">
+                <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">
                   <Linkedin /> LinkedIn
                 </a>
               </Button>
@@ -255,10 +269,10 @@ function Portfolio() {
         {/* HERO */}
         <section id="home" className="hero-bg relative flex min-h-[100svh] items-center pt-16">
           <div className="grid-dots pointer-events-none absolute inset-0" aria-hidden="true" />
-          <div className="container-x relative grid items-center gap-14 py-16 lg:grid-cols-[1.25fr_1fr]">
-            <div className="reveal is-visible">
+          <div className="container-x relative grid items-center gap-10 py-12 md:grid-cols-[1.2fr_1fr] md:gap-8 lg:gap-14 lg:py-16">
+            <div className="reveal is-visible min-w-0">
               <p className="mono-label">Hi, I'm Sabarish 👋</p>
-              <h1 className="mt-5 text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+              <h1 className="mt-5 text-[2.6rem] font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-[3.2rem] lg:text-7xl">
                 <span className="text-gradient">Web Developer</span>
                 <span className="blink text-primary">_</span>
               </h1>
@@ -266,20 +280,25 @@ function Portfolio() {
                 Web Developer with 3+ years of experience building responsive and user-focused
                 websites using Duda CMS, HTML, CSS, and JavaScript.
               </p>
-              <div className="mt-9 flex flex-wrap gap-3">
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap [&>a]:w-full sm:[&>a]:w-auto">
                 <Button asChild size="lg">
                   <a href="#projects">
                     View Projects <ArrowRight />
                   </a>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <a href={RESUME} target="_blank" rel="noreferrer">
+                  <a href={RESUME} target="_blank" rel="noopener noreferrer">
                     <Download /> Download Resume
                   </a>
                 </Button>
                 <Button asChild size="lg" variant="ghost">
-                  <a href={LINKEDIN} target="_blank" rel="noreferrer">
+                  <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">
                     <Linkedin /> LinkedIn
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="ghost">
+                  <a href={GITHUB} target="_blank" rel="noopener noreferrer">
+                    <Github /> GitHub
                   </a>
                 </Button>
               </div>
@@ -288,14 +307,14 @@ function Portfolio() {
               </p>
             </div>
 
-            <div className="reveal is-visible card-surface hidden overflow-hidden font-mono text-sm lg:block">
+            <div className="reveal is-visible card-surface w-full max-w-full min-w-0 box-border overflow-hidden font-mono text-[0.72rem] sm:text-sm">
               <div className="flex items-center gap-2 border-b border-border px-4 py-3">
                 <span className="size-3 rounded-full bg-destructive/80" />
                 <span className="size-3 rounded-full bg-accent/80" />
                 <span className="size-3 rounded-full bg-primary/80" />
                 <span className="ml-3 text-xs text-muted-foreground">sabarish.js</span>
               </div>
-              <pre className="overflow-x-auto p-6 leading-7 text-muted-foreground">
+              <pre className="whitespace-pre-wrap break-words p-4 leading-6 text-muted-foreground sm:p-6 sm:leading-7">
                 <code>
                   <span className="text-accent">const</span> developer = {"{"}
                   {"\n"}  name: <span className="text-primary">"Sabarish M"</span>,
@@ -367,7 +386,7 @@ function Portfolio() {
                     <p className="mt-1 font-semibold text-primary">Yectra Technologies</p>
                     <p className="mt-1 text-sm text-muted-foreground">Coimbatore, Tamil Nadu</p>
                   </div>
-                  <span className="chip font-mono">2022 – Present</span>
+                  <span className="chip font-mono">2023 – Present</span>
                 </div>
                 <ul className="mt-7 grid gap-4 md:grid-cols-2">
                   {achievements.map((a) => (
@@ -425,7 +444,7 @@ function Portfolio() {
                   <a
                     href={p.url}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     aria-label={`View ${p.name} website`}
                     className={`group card-surface block overflow-hidden md:col-span-7 ${
                       i % 2 ? "md:order-2" : ""
@@ -446,13 +465,13 @@ function Portfolio() {
                     <p className="mt-4 rounded-xl border border-border bg-card p-5 leading-relaxed text-muted-foreground">
                       {p.description}
                     </p>
-                    <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-muted-foreground">
+                    {p.tags.length ? <ul className="mt-5 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-muted-foreground">
                       {p.tags.map((t) => (
                         <li key={t}>{t}</li>
                       ))}
-                    </ul>
+                    </ul> : null}
                     <Button asChild variant="outline" className="mt-6">
-                      <a href={p.url} target="_blank" rel="noreferrer">
+                      <a href={p.url} target="_blank" rel="noopener noreferrer">
                         View Website <ArrowUpRight />
                       </a>
                     </Button>
@@ -497,8 +516,8 @@ function Portfolio() {
                   <BadgeCheck className="size-8 shrink-0 text-primary" />
                   <div>
                     <h2 className="text-2xl font-semibold">Duda Developer Certified</h2>
-                    <p className="mt-1 text-muted-foreground">Duda · Issued July 2026</p>
-                    <p className="text-sm text-muted-foreground">Valid through July 2027</p>
+                    <p className="mt-1 text-muted-foreground">Duda · Issued July 8, 2026</p>
+                    <p className="text-sm text-muted-foreground">Valid through July 8, 2027 · Certificate No. 392439216</p>
                   </div>
                 </div>
                 <div className="border-t border-border bg-foreground/95 p-3">
@@ -551,12 +570,12 @@ function Portfolio() {
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <a href={LINKEDIN} target="_blank" rel="noreferrer">
+                <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">
                   <Linkedin /> LinkedIn
                 </a>
               </Button>
               <Button asChild size="lg" variant="ghost">
-                <a href={RESUME} target="_blank" rel="noreferrer">
+                <a href={RESUME} target="_blank" rel="noopener noreferrer">
                   <Download /> Download Resume
                 </a>
               </Button>
@@ -580,8 +599,11 @@ function Portfolio() {
             Developer
           </p>
           <nav className="flex gap-6" aria-label="Footer">
-            <a href={LINKEDIN} target="_blank" rel="noreferrer" className="hover:text-primary">
+            <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
               LinkedIn
+            </a>
+            <a href={GITHUB} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+              GitHub
             </a>
             <a href={`mailto:${EMAIL}`} className="hover:text-primary">
               Email
