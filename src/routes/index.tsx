@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 
 const LINKEDIN = "https://www.linkedin.com/in/sabarish-manikandan-55155128b";
 const EMAIL = "sabari30596sabari@gmail.com";
-const RESUME = "/Sabarish_M.pdf";
+const RESUME = "/Sabarish_M_Web_Developer_Resume.pdf";
 const GITHUB = "https://github.com/Sabarish90";
 
 const TITLE = "Sabarish M | Web Developer";
