@@ -261,3 +261,4 @@
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+@utility glass-card { border: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent); border-radius: var(--radius-xl); background: color-mix(in oklab, var(--color-card) 75%, transparent); backdrop-filter: blur(10px); box-shadow: var(--shadow-card); transition: border-color .3s ease, transform .3s ease; }

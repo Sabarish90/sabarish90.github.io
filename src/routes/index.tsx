@@ -22,9 +22,9 @@ const EMAIL = "sabari30596sabari@gmail.com";
 const RESUME = "/Sabarish_M_Web_Developer_Resume.pdf";
 const GITHUB = "https://github.com/Sabarish90";
 
-const TITLE = "Sabarish M | Web Developer";
+const TITLE = "Sabarish M | Web Developer | CMS Developer";
 const DESCRIPTION =
-  "Web Developer with 3+ years of experience in Duda CMS, HTML, CSS, JavaScript, responsive web development, custom widgets, and website optimization.";
+  "Web Developer with 3+ years of experience in CMS development, web publishing, website maintenance, responsive web design and front-end development using Duda CMS, WordPress, HTML5, CSS3 and JavaScript.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,50 +47,52 @@ const navItems = [
   ["Experience", "experience"],
   ["Skills", "skills"],
   ["Projects", "projects"],
+  ["Certification", "certification"],
   ["Contact", "contact"],
 ] as const;
 
-const skillGroups: { title: string; skills: [string, string?][] }[] = [
-  { title: "Frontend", skills: [["HTML5"], ["CSS3"], ["JavaScript ES6+"]] },
-  {
-    title: "CMS / Website Platforms",
-    skills: [["Duda CMS / Duda Website Builder"], ["WordPress", "Working knowledge"], ["Web Publishing"], ["Website Maintenance"]],
-  },
-  { title: "Backend / Database", skills: [["PHP", "Basic"], ["MySQL", "Basic"]] },
-  {
-    title: "Integrations",
-    skills: [["REST APIs"], ["EmailJS"], ["Google Sheets"], ["Airtable"], ["Zapier"]],
-  },
-  {
-    title: "Other",
-    skills: [
-      ["Responsive Design"],
-      ["Cross-Browser Compatibility"],
-      ["SEO"],
-      ["Core Web Vitals"],
-      ["Git"],
-      ["QA / Testing"],
-    ],
-  },
+const skillGroups: { title: string; skills: [string, string?][]; featured?: boolean }[] = [
+  { title: "Front-End Development", skills: [["HTML5"], ["CSS3"], ["JavaScript ES6+"], ["Responsive Web Development"], ["Mobile-First Development"], ["Cross-Browser Compatibility"], ["Front-End Development"]] },
+  { title: "CMS Development", featured: true, skills: [["Duda CMS", "Primary"], ["Duda Website Builder", "Primary"], ["CMS Development"], ["CMS Management"], ["CMS Customization"], ["WordPress", "Working Knowledge"]] },
+  { title: "Web Publishing & Website Management", skills: [["Web Publishing"], ["Website Publishing"], ["CMS Publishing"], ["Website Content Management"], ["Content Updates"], ["Website Maintenance"], ["Website Management"], ["Production Publishing"]] },
+  { title: "Web Design", skills: [["Web Design"], ["Website Design"], ["Responsive Web Design"], ["Website Layouts"], ["Landing Pages"], ["UI Implementation"], ["Website Customization"]] },
+  { title: "Custom Development", skills: [["Custom Widgets"], ["Reusable Components"], ["Forms"], ["Custom HTML/CSS/JavaScript"]] },
+  { title: "SEO & Performance", skills: [["On-Page SEO"], ["Technical SEO"], ["Core Web Vitals"], ["Page Speed Optimization"], ["Google Analytics"]] },
+  { title: "Integrations", skills: [["API Integration"], ["EmailJS"], ["Google Sheets"]] },
+  { title: "Tools & Workflow", skills: [["Git"], ["QA Testing"], ["Responsive Testing"], ["Cross-Browser Testing"], ["Microsoft Excel"], ["Microsoft Office"], ["Requirement Gathering"], ["Client Communication"], ["Project Coordination"]] },
 ];
 
 const achievements = [
-  "Developed and published 15+ responsive business websites for clients in India and Australia.",
-  "Built 20+ custom HTML/CSS/JavaScript widgets — animated hero sections, testimonials, stats counters, contact forms and footers — to extend Duda CMS.",
-  "Managed the full website workflow: create, customize, update, QA, publish and maintain.",
-  "Built a production homepage with 13 content sections, animated counters and scroll-reveal effects.",
-  "Built an EmailJS contact form widget with a searchable 195-country dropdown and real-time validation.",
-  "Built a pricing-automation prototype with Google Sheets, Airtable and Zapier.",
-  "Optimized page speed, Core Web Vitals and on-page SEO; ran responsive and cross-browser testing.",
-  "Maintained client websites with content updates, layout changes and first-line technical support.",
+  "Developed and published 15+ responsive business websites for clients across multiple industries in India and Australia.",
+  "Built 20+ custom HTML/CSS/JavaScript widgets including animated homepages, hero sections, testimonials, stats counters, contact forms and footers.",
+  "Managed the full website workflow from creation, customization and updates through QA, publishing and maintenance.",
+  "Developed a production-ready homepage with 13 content sections, animated counters and scroll-reveal effects.",
+  "Built an EmailJS contact form with a searchable 195-country dropdown and real-time client-side validation.",
+  "Delivered a complete website for an Australian property maintenance company including design system, sitemap, wireframes, SEO metadata and modular CMS widgets.",
+  "Designed landing pages and business layouts aligned with client brand guidelines.",
+  "Resolved global CSS conflicts using scoped and ID-based styling.",
+  "Optimized websites for page speed, Core Web Vitals and on-page SEO.",
+  "Performed responsive and cross-browser testing and troubleshooting before launch.",
+  "Maintained client websites through content updates, page and layout changes, first-line technical support and client feedback implementation.",
 ];
+
+const services = [
+  ["CMS Development", "CMS development, CMS customization, CMS management, reusable components and custom widgets."],
+  ["Web Publishing", "Production publishing, CMS publishing, content updates, page updates and website publishing."],
+  ["Website Maintenance", "Website content management, layout changes, troubleshooting, ongoing website updates and client-requested changes."],
+  ["Web Design", "Responsive website design, website layouts, landing pages, UI implementation and mobile-first design."],
+  ["Front-End Development", "HTML5, CSS3, JavaScript ES6+, custom HTML/CSS/JavaScript and reusable website components."],
+  ["SEO & Performance", "On-page SEO, technical SEO, Core Web Vitals, page speed optimization, Google Analytics, responsive testing and cross-browser testing."],
+];
+
+const workflow = ["Plan", "Design", "Customize", "Develop", "Test", "Publish", "Maintain"];
 
 const projects = [
   {
-    name: "SRM College, Trichy",
-    category: "Institutional website",
+    name: "SRM Institute of Science and Technology, Trichy",
+    category: "Institutional Website",
     description:
-      "A large institutional website with responsive layouts, structured department content, performance optimization and SEO considerations.",
+      "Institutional website with responsive layouts, department pages, performance optimization and SEO.",
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript", "SEO"],
     url: "https://www.srmtrichy.edu.in/",
     image: "/srm-trichy.png",
@@ -98,7 +100,7 @@ const projects = [
   },
   {
     name: "Texcoms Worldwide",
-    category: "Corporate / B2B website",
+    category: "B2B / Corporate Website",
     description:
       "B2B machinery website with product catalogue, company profile, and a custom EmailJS contact form with international phone and country validation.",
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript", "EmailJS"],
@@ -107,8 +109,18 @@ const projects = [
     alt: "Texcoms Worldwide corporate website homepage",
   },
   {
+    name: "Creatus Technologies, NSW, Australia",
+    category: "Technology / Engineering Website",
+    description:
+      "Landing page and standalone widgets including trust bar and lead-generation form for a 3D scan-to-CAD and reverse engineering company.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    url: "",
+    image: "",
+    alt: "",
+  },
+  {
     name: "Stelios Restaurant",
-    category: "Restaurant website",
+    category: "Restaurant Website",
     description:
       "Restaurant website with dynamic menu showcases and a mobile-optimized UI.",
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript"],
@@ -118,9 +130,9 @@ const projects = [
   },
   {
     name: "Maya Indian Catering",
-    category: "Business / catering website",
+    category: "Business / Catering Website",
     description:
-      "A service-focused catering website presenting menus and inquiry options through a responsive, conversion-focused experience.",
+      "Service website with conversion-focused landing pages, inquiry forms and on-page SEO.",
     tags: ["Duda CMS", "HTML", "CSS", "JavaScript", "SEO"],
     url: "https://www.mayacater.com/",
     image: "/maya-catering.png",
@@ -136,17 +148,6 @@ const projects = [
     image: "/us-electronics.png",
     alt: "US Electronics website homepage",
   },
-];
-
-const widgets = [
-  "Custom HTML / CSS / JavaScript widgets",
-  "Animated sections",
-  "Counters",
-  "Scroll reveal effects",
-  "Forms",
-  "Searchable country dropdown",
-  "API integrations",
-  "Reusable website components",
 ];
 
 function SectionTitle({ index, label, title }: { index: string; label: string; title: string }) {
@@ -283,7 +284,7 @@ function Portfolio() {
                 {label}
               </a>
             ))}
-            <div className="mt-4 flex gap-2">
+            <div className="mt-4 flex flex-wrap gap-2">
               <Button asChild size="sm">
                 <a href={RESUME} target="_blank" rel="noopener noreferrer">
                   <Download /> Resume
@@ -305,19 +306,32 @@ function Portfolio() {
           <div className="grid-dots pointer-events-none absolute inset-0" aria-hidden="true" />
           <div className="container-x relative grid items-center gap-10 py-12 md:grid-cols-[1.2fr_1fr] md:gap-8 lg:gap-14 lg:py-16">
             <div className="reveal is-visible min-w-0">
-              <p className="mono-label">Hi, I'm Sabarish</p>
+              <p className="font-display text-xl font-semibold sm:text-2xl">Hi, I'm Sabarish 👋</p>
               <h1 className="mt-5 text-[2.6rem] font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-[3.2rem] lg:text-7xl">
                 <span className="text-gradient">Web Developer</span>
                 <span className="blink text-primary">_</span>
               </h1>
+              <p className="mt-3 font-mono text-xs tracking-widest text-muted-foreground sm:text-sm">WEB DEVELOPER | WEB DESIGNER | CMS DEVELOPER</p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                Web Developer with 3+ years of experience building responsive and user-focused
-                websites using Duda CMS, HTML, CSS, and JavaScript.
+                Web Developer with 3+ years of experience in web development, web design, CMS
+                development, front-end development, web publishing, website maintenance, and client
+                website management.
               </p>
+              <p className="mt-4 text-sm font-semibold text-primary">
+                CMS Development • Web Publishing • Website Maintenance • Front-End Development
+              </p>
+              <dl className="mt-6 grid max-w-xl grid-cols-2 gap-3 text-sm sm:grid-cols-4">
+                {[["3+ Years", "Experience"], ["15+", "Websites"], ["20+", "Custom widgets"], ["Duda CMS", "WordPress — working"]].map(([v, l]) => (
+                  <div key={l} className="glass-card px-3 py-2">
+                    <dt className="font-display font-bold text-foreground">{v}</dt>
+                    <dd className="text-xs text-muted-foreground">{l}</dd>
+                  </div>
+                ))}
+              </dl>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap [&>a]:w-full sm:[&>a]:w-auto">
                 <Button asChild size="lg">
                   <a href="#projects">
-                    View Projects <ArrowRight />
+                    View My Work <ArrowRight />
                   </a>
                 </Button>
                 <Button asChild size="lg" variant="outline">
@@ -333,6 +347,11 @@ function Portfolio() {
                 <Button asChild size="lg" variant="ghost">
                   <a href={GITHUB} target="_blank" rel="noopener noreferrer">
                     <Github /> GitHub
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="ghost">
+                  <a href={`mailto:${EMAIL}`}>
+                    <Mail /> Email
                   </a>
                 </Button>
               </div>
@@ -354,12 +373,15 @@ function Portfolio() {
                   {"\n"}  name: <span className="text-primary">"Sabarish M"</span>,
                   {"\n"}  role: <span className="text-primary">"Web Developer"</span>,
                   {"\n"}  experience: <span className="text-primary">"3+ years"</span>,
-                  {"\n"}  stack: [<span className="text-primary">"HTML5"</span>,{" "}
-                  <span className="text-primary">"CSS3"</span>,{" "}
-                  <span className="text-primary">"JavaScript"</span>],
-                  {"\n"}  cms: [<span className="text-primary">"Duda"</span>,{" "}
-                  <span className="text-primary">"WordPress"</span>],
-                  {"\n"}  focus: <span className="text-primary">"responsive, fast, SEO-ready"</span>,
+                  {"\n"}  websites: <span className="text-primary">"15+"</span>,
+                  {"\n"}  customWidgets: <span className="text-primary">"20+"</span>,
+                  {"\n"}  cms: [<span className="text-primary">"Duda"</span>, <span className="text-primary">"WordPress"</span>],
+                  {"\n"}  frontend: [<span className="text-primary">"HTML5"</span>, <span className="text-primary">"CSS3"</span>, <span className="text-primary">"JavaScript"</span>],
+                  {"\n"}  focus: [
+                  {"\n"}    <span className="text-primary">"Web Publishing"</span>,
+                  {"\n"}    <span className="text-primary">"Website Maintenance"</span>,
+                  {"\n"}    <span className="text-primary">"Responsive Development"</span>
+                  {"\n"}  ]
                   {"\n"}{"}"};
                 </code>
               </pre>
@@ -374,27 +396,28 @@ function Portfolio() {
             <div className="grid gap-10 md:grid-cols-[1.4fr_1fr]">
               <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
                 <p>
-                  I'm a <span className="text-foreground">Web Developer with 3+ years</span> of
-                  hands-on experience building responsive, mobile-first business websites using
-                  HTML5, CSS3 and JavaScript ES6+.
+                  I am a <span className="text-foreground">Web Developer with 3+ years</span> of
+                  hands-on experience in web development, web design, CMS development, web
+                  publishing, website maintenance, and client website management.
                 </p>
                 <p>
-                  Much of my work is on <span className="text-foreground">Duda CMS / Duda Website
-                  Builder</span>, where I create custom widgets and reusable components, integrate
-                  APIs and handle ongoing website maintenance.
+                  I have delivered <span className="text-foreground">15+ responsive business websites</span> and
+                  built <span className="text-foreground">20+ custom HTML/CSS/JavaScript widgets</span> to extend CMS functionality.
                 </p>
                 <p>
-                  I also focus on SEO and Core Web Vitals so the websites I build stay fast and
-                  discoverable.
+                  I work across the complete website workflow including website creation, customization,
+                  content updates, QA, publishing, optimization, and ongoing maintenance. I have worked
+                  directly with clients in India and Australia.
                 </p>
               </div>
-              <div className="grid grid-cols-3 gap-3 self-start md:grid-cols-1">
+              <div className="grid grid-cols-2 gap-3 self-start">
                 {[
-                  ["3+", "Years of experience"],
-                  ["15+", "Responsive websites"],
-                  ["20+", "Custom widgets"],
+                  ["3+", "Years Experience"],
+                  ["15+", "Responsive Websites"],
+                  ["20+", "Custom Widgets"],
+                  ["2+", "CMS Platforms"],
                 ].map(([n, l]) => (
-                  <div key={l} className="card-surface card-hover p-5">
+                  <div key={l} className="glass-card card-hover p-5">
                     <p className="font-display text-3xl font-bold text-gradient">{n}</p>
                     <p className="mt-1 text-sm text-muted-foreground">{l}</p>
                   </div>
@@ -404,21 +427,37 @@ function Portfolio() {
           </div>
         </section>
 
+        {/* WHAT I DO */}
+        <section className="section-pad" aria-labelledby="services-title">
+          <div className="container-x reveal">
+            <div className="mb-12 md:mb-16">
+              <p className="mono-label">02. Services</p>
+              <h2 id="services-title" className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">What I Do</h2>
+            </div>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {services.map(([t, d], i) => (
+                <article key={t} className="glass-card card-hover p-6">
+                  <span className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-4 text-lg font-semibold">{t}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* EXPERIENCE */}
         <section id="experience" className="section-pad">
           <div className="container-x reveal">
-            <SectionTitle index="02" label="Experience" title="Where I've worked" />
+            <SectionTitle index="03" label="Experience" title="Where I've worked" />
             <div className="relative border-l border-border pl-8 md:pl-12">
               <span className="absolute -left-[7px] top-2 size-3.5 rounded-full bg-primary shadow-[0_0_0_6px_var(--glow)]" />
               <div className="card-surface p-6 md:p-9">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
-                    <h3 className="text-xl font-semibold md:text-2xl">
-                      Web Developer{" "}
-                      <span className="text-muted-foreground">— Duda CMS &amp; Platform Developer</span>
-                    </h3>
+                    <h3 className="text-xl font-semibold md:text-2xl">Web Developer</h3>
                     <p className="mt-1 font-semibold text-primary">Yectra Technologies</p>
-                    <p className="mt-1 text-sm text-muted-foreground">Coimbatore, Tamil Nadu</p>
+                    <p className="mt-1 text-sm text-muted-foreground">Coimbatore, Tamil Nadu, India</p>
                   </div>
                   <span className="chip font-mono">2023 – Present</span>
                 </div>
@@ -438,10 +477,10 @@ function Portfolio() {
         {/* SKILLS */}
         <section id="skills" className="section-pad border-y border-border bg-surface">
           <div className="container-x reveal">
-            <SectionTitle index="03" label="Skills" title="Tools & technologies" />
+            <SectionTitle index="04" label="Skills" title="Skills & expertise" />
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {skillGroups.map((g) => (
-                <article key={g.title} className="card-surface card-hover p-6">
+                <article key={g.title} className={`glass-card card-hover p-6 ${g.featured ? "border-primary/60 sm:col-span-2 lg:col-span-1 shadow-[0_0_0_1px_var(--glow),0_20px_60px_-20px_var(--glow)]" : ""}`}>
                   <h3 className="flex items-center gap-2 text-lg font-semibold">
                     <Code2 className="size-5 text-primary" /> {g.title}
                   </h3>
@@ -463,11 +502,55 @@ function Portfolio() {
           </div>
         </section>
 
+        {/* CMS PLATFORMS */}
+        <section className="section-pad" aria-labelledby="cms-title">
+          <div className="container-x reveal">
+            <div className="mb-12 md:mb-16">
+              <p className="mono-label">05. Platforms</p>
+              <h2 id="cms-title" className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">CMS &amp; Website Platforms</h2>
+            </div>
+            <div className="grid gap-5 md:grid-cols-[1.6fr_1fr]">
+              <article className="glass-card border-primary/60 p-8 md:p-10">
+                <span className="chip">Primary platform</span>
+                <h3 className="mt-5 font-display text-3xl font-bold text-gradient md:text-4xl">Duda CMS &amp; Duda Website Builder</h3>
+                <p className="mt-3 text-muted-foreground">Strong hands-on experience · Duda Developer Certified</p>
+              </article>
+              <article className="glass-card p-8">
+                <span className="chip">Secondary</span>
+                <h3 className="mt-5 font-display text-2xl font-semibold">WordPress</h3>
+                <p className="mt-3 text-muted-foreground">Working knowledge</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* WORKFLOW */}
+        <section className="section-pad border-y border-border bg-surface" aria-labelledby="workflow-title">
+          <div className="container-x reveal">
+            <div className="mb-12 md:mb-16">
+              <p className="mono-label">06. Process</p>
+              <h2 id="workflow-title" className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">My Website Workflow</h2>
+              <p className="mt-4 max-w-2xl text-muted-foreground">
+                My experience covers the website lifecycle — from creation and customization through
+                QA, production publishing and ongoing maintenance.
+              </p>
+            </div>
+            <ol className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
+              {workflow.map((w, i) => (
+                <li key={w} className="glass-card card-hover p-5 text-center">
+                  <span className="font-mono text-sm text-primary">{String(i + 1).padStart(2, "0")}</span>
+                  <p className="mt-2 font-display font-semibold">{w}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
         {/* PROJECTS */}
         <section id="projects" className="section-pad">
           <div className="container-x">
             <div className="reveal">
-              <SectionTitle index="04" label="Projects" title="Featured projects" />
+              <SectionTitle index="07" label="Projects" title="Selected Projects" />
             </div>
             <div className="grid gap-20 md:gap-28">
               {projects.map((p, i) => (
@@ -475,7 +558,7 @@ function Portfolio() {
                   key={p.name}
                   className="reveal grid items-center gap-8 md:grid-cols-12"
                 >
-                  <a
+                  {p.image ? <a
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -490,7 +573,15 @@ function Portfolio() {
                       loading="lazy"
                       className="block h-auto w-full transition-transform duration-700 group-hover:scale-[1.03]"
                     />
-                  </a>
+                  </a> : (
+                    <div className={`glass-card grid aspect-[16/10] place-items-center p-8 text-center md:col-span-7 ${i % 2 ? "md:order-2" : ""}`}>
+                      <div>
+                        <Code2 className="mx-auto size-10 text-primary" />
+                        <p className="mt-4 font-display text-xl font-semibold">{p.name}</p>
+                        <p className="mt-1 font-mono text-xs text-muted-foreground">Landing page · Custom widgets</p>
+                      </div>
+                    </div>
+                  )}
                   <div className={`md:col-span-5 ${i % 2 ? "md:order-1" : ""}`}>
                     <p className="mono-label">
                       {String(i + 1).padStart(2, "0")} · {p.category}
@@ -504,37 +595,13 @@ function Portfolio() {
                         <li key={t}>{t}</li>
                       ))}
                     </ul> : null}
-                    <Button asChild variant="outline" className="mt-6">
+                    {p.url ? <Button asChild variant="outline" className="mt-6">
                       <a href={p.url} target="_blank" rel="noopener noreferrer">
                         View Website <ArrowUpRight />
                       </a>
-                    </Button>
+                    </Button> : null}
                   </div>
                 </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* WIDGETS */}
-        <section className="section-pad border-y border-border bg-surface" aria-labelledby="widgets-title">
-          <div className="container-x reveal">
-            <div className="mb-12 md:mb-16">
-              <p className="mono-label">05. Custom work</p>
-              <h2 id="widgets-title" className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-                Custom components &amp; widgets
-              </h2>
-              <p className="mt-4 max-w-2xl text-muted-foreground">
-                Hand-built HTML, CSS and JavaScript solutions that extend what the CMS offers out of
-                the box.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {widgets.map((w, i) => (
-                <div key={w} className="card-surface card-hover p-5">
-                  <span className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</span>
-                  <p className="mt-6 font-display font-semibold leading-snug">{w}</p>
-                </div>
               ))}
             </div>
           </div>
@@ -544,7 +611,7 @@ function Portfolio() {
         <section id="certification" className="section-pad">
           <div className="container-x grid gap-12 lg:grid-cols-[1.2fr_1fr]">
             <div className="reveal">
-              <p className="mono-label">06. Certification</p>
+              <p className="mono-label">08. Certification</p>
               <article className="card-surface mt-6 overflow-hidden">
                 <div className="flex items-start gap-4 p-6 md:p-8">
                   <BadgeCheck className="size-8 shrink-0 text-primary" />
@@ -566,11 +633,11 @@ function Portfolio() {
             </div>
 
             <div className="reveal">
-              <p className="mono-label">07. Education</p>
+              <p className="mono-label">09. Education</p>
               <div className="mt-6 grid gap-4">
                 {[
-                  ["MCA", "Bharathiar University", "In Progress · Expected 2026"],
-                  ["B.Sc Computer Science", "Tamil Nadu", "Completed"],
+                  ["Master of Computer Applications (MCA)", "Bharathiar University · Tamil Nadu, India", "Expected 2026"],
+                  ["Bachelor of Science in Computer Science (B.Sc CS)", "Tamil Nadu, India", "2016"],
                 ].map(([deg, inst, when]) => (
                   <article key={deg} className="card-surface card-hover flex gap-4 p-6">
                     <GraduationCap className="size-6 shrink-0 text-primary" />
@@ -589,13 +656,13 @@ function Portfolio() {
         {/* CONTACT */}
         <section id="contact" className="section-pad hero-bg border-t border-border">
           <div className="container-x reveal text-center">
-            <p className="mono-label">08. What's next?</p>
+            <p className="mono-label">10. Contact</p>
             <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
               Let's <span className="text-gradient">work together</span>
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">
-              I'm open to Web Developer, Front-End Developer and CMS Web Developer roles. My inbox
-              is always open.
+              I'm open to opportunities in Web Development, Web Design, CMS Development, Web
+              Publishing, Website Maintenance and Front-End Development.
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg">
@@ -606,6 +673,11 @@ function Portfolio() {
               <Button asChild size="lg" variant="outline">
                 <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">
                   <Linkedin /> LinkedIn
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <a href={GITHUB} target="_blank" rel="noopener noreferrer">
+                  <Github /> GitHub
                 </a>
               </Button>
               <Button asChild size="lg" variant="ghost">
