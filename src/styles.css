@@ -45,19 +45,19 @@
   --card-foreground: oklch(0.95 0.008 250);
   --popover: oklch(0.205 0.024 255);
   --popover-foreground: oklch(0.95 0.008 250);
-  --primary: oklch(0.8 0.14 180);
+  --primary: oklch(0.72 0.15 255);
   --primary-foreground: oklch(0.16 0.03 255);
   --secondary: oklch(0.26 0.025 255);
   --secondary-foreground: oklch(0.95 0.008 250);
   --muted: oklch(0.24 0.02 255);
   --muted-foreground: oklch(0.7 0.02 255);
-  --accent: oklch(0.82 0.13 75);
+  --accent: oklch(0.72 0.17 295);
   --accent-foreground: oklch(0.16 0.03 255);
   --destructive: oklch(0.62 0.21 27);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.3 0.022 255);
   --input: oklch(0.32 0.022 255);
-  --ring: oklch(0.8 0.14 180);
+  --ring: oklch(0.72 0.15 255);
   --glow: color-mix(in oklab, var(--primary) 22%, transparent);
   --shadow-card: 0 1.5rem 3rem -1.5rem oklch(0 0 0 / 0.55);
 }
@@ -261,3 +261,4 @@
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+@utility glass-card { border: 1px solid color-mix(in oklab, var(--color-foreground) 10%, transparent); border-radius: var(--radius-xl); background: color-mix(in oklab, var(--color-card) 75%, transparent); backdrop-filter: blur(10px); box-shadow: var(--shadow-card); transition: border-color .3s ease, transform .3s ease; }
