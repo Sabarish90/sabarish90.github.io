@@ -97,6 +97,165 @@
 
 @keyframes blink { 50% { opacity: 0; } }
 
+.portfolio-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, color-mix(in oklab, var(--color-foreground) 7%, transparent), transparent 32%),
+    var(--color-background);
+  color: var(--color-foreground);
+  animation: loader-exit .45s ease 1.45s forwards;
+}
+
+.portfolio-loader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .28;
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--color-foreground) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--color-foreground) 4%, transparent) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+  mask-image: radial-gradient(circle at center, black, transparent 48%);
+}
+
+.loader-terminal {
+  position: relative;
+  width: min(22rem, calc(100vw - 3rem));
+  font-family: var(--font-mono);
+  animation: loader-enter .5s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.loader-mark {
+  position: relative;
+  display: grid;
+  width: 4rem;
+  height: 4rem;
+  margin-inline: auto;
+  place-items: center;
+}
+
+.loader-mark::before,
+.loader-mark::after {
+  content: "";
+  position: absolute;
+  inset: .6rem;
+  border: 1px solid color-mix(in oklab, var(--color-foreground) 22%, transparent);
+  transform: rotate(45deg);
+  animation: loader-orbit 1.3s ease-in-out infinite alternate;
+}
+
+.loader-mark::after {
+  inset: .1rem;
+  border-color: color-mix(in oklab, var(--color-primary) 24%, transparent);
+  animation-direction: alternate-reverse;
+}
+
+.loader-mark span {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border: 1px solid var(--color-foreground);
+  border-radius: .45rem;
+  background: var(--color-foreground);
+  color: var(--color-background);
+  font-size: .95rem;
+  font-weight: 700;
+  box-shadow: 0 0 2rem color-mix(in oklab, var(--color-foreground) 14%, transparent);
+}
+
+.loader-kicker {
+  margin-top: 1.35rem;
+  text-align: center;
+  font-size: .55rem;
+  letter-spacing: .42em;
+  color: var(--color-muted-foreground);
+}
+
+.loader-name {
+  margin-top: .65rem;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.loader-steps {
+  display: grid;
+  gap: .45rem;
+  width: fit-content;
+  margin: 1.75rem auto 0;
+  padding: 0;
+  list-style: none;
+  font-size: .62rem;
+  color: var(--color-muted-foreground);
+}
+
+.loader-steps li {
+  opacity: 0;
+  animation: loader-line .25s ease forwards;
+}
+
+.loader-steps li:nth-child(1) { animation-delay: .25s; }
+.loader-steps li:nth-child(2) { animation-delay: .45s; }
+.loader-steps li:nth-child(3) { animation-delay: .65s; }
+.loader-steps li:nth-child(4) { animation-delay: .85s; }
+.loader-steps span { display: inline-block; width: 2rem; color: var(--color-primary); }
+
+.loader-handoff {
+  position: absolute;
+  right: clamp(1.5rem, 7vw, 6rem);
+  bottom: clamp(1.5rem, 4vw, 3rem);
+  left: clamp(1.5rem, 7vw, 6rem);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: .5rem;
+  letter-spacing: .32em;
+  color: var(--color-muted-foreground);
+}
+
+.loader-handoff i { height: 1px; flex: 1; background: var(--color-border); }
+
+.loader-corner {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-color: var(--color-muted-foreground);
+  opacity: .65;
+}
+.loader-corner-tl { top: 1.25rem; left: 1.25rem; border-top: 1px solid; border-left: 1px solid; }
+.loader-corner-tr { top: 1.25rem; right: 1.25rem; border-top: 1px solid; border-right: 1px solid; }
+.loader-corner-bl { bottom: 1.25rem; left: 1.25rem; border-bottom: 1px solid; border-left: 1px solid; }
+.loader-corner-br { right: 1.25rem; bottom: 1.25rem; border-right: 1px solid; border-bottom: 1px solid; }
+
+@keyframes loader-enter {
+  from { opacity: 0; transform: translateY(.75rem) scale(.98); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes loader-line {
+  from { opacity: 0; transform: translateX(-.5rem); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes loader-orbit {
+  from { transform: rotate(38deg) scale(.9); }
+  to { transform: rotate(52deg) scale(1.04); }
+}
+
+@keyframes loader-exit {
+  to { opacity: 0; visibility: hidden; transform: scale(1.015); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
