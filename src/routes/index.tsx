@@ -164,8 +164,12 @@ function Portfolio() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const [introVisible, setIntroVisible] = useState(true);
 
   useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const introTimer = window.setTimeout(() => setIntroVisible(false), reduceMotion ? 120 : 1800);
+
     const reveal = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => e.isIntersecting && e.target.classList.add("is-visible")),
@@ -187,6 +191,7 @@ function Portfolio() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
+      window.clearTimeout(introTimer);
       reveal.disconnect();
       spy.disconnect();
       window.removeEventListener("scroll", onScroll);
@@ -195,6 +200,35 @@ function Portfolio() {
 
   return (
     <div className="min-h-screen overflow-x-clip bg-background text-foreground">
+      {introVisible ? (
+        <div className="portfolio-loader" role="status" aria-label="Loading Sabarish M portfolio">
+          <span className="loader-corner loader-corner-tl" aria-hidden="true" />
+          <span className="loader-corner loader-corner-tr" aria-hidden="true" />
+          <span className="loader-corner loader-corner-bl" aria-hidden="true" />
+          <span className="loader-corner loader-corner-br" aria-hidden="true" />
+
+          <div className="loader-terminal">
+            <div className="loader-mark" aria-hidden="true">
+              <span>S</span>
+            </div>
+            <p className="loader-kicker">BOOT SEQUENCE</p>
+            <p className="loader-name">sabarish.dev</p>
+            <ol className="loader-steps" aria-hidden="true">
+              <li><span>01</span>// ingress: sabarish.dev</li>
+              <li><span>02</span>verify profile … ok</li>
+              <li><span>03</span>hydrate portfolio … ok</li>
+              <li><span>04</span>signal projects … ready</li>
+            </ol>
+          </div>
+
+          <div className="loader-handoff" aria-hidden="true">
+            <span>CHANNEL OPEN</span>
+            <i />
+            <span>AWAIT HANDOFF</span>
+          </div>
+        </div>
+      ) : null}
+
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled || menuOpen

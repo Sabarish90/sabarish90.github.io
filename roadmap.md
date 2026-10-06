@@ -5,3 +5,4 @@
 - [x] Hero code card visible on mobile/tablet
 - [x] US Electronics project
 - [x] GitHub/LinkedIn direct links
+- [x] Harish-inspired opening loader customized for Sabarish
