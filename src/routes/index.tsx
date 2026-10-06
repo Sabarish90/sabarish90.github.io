@@ -109,16 +109,6 @@ const projects = [
     alt: "Texcoms Worldwide corporate website homepage",
   },
   {
-    name: "Creatus Technologies, NSW, Australia",
-    category: "Technology / Engineering Website",
-    description:
-      "Landing page and standalone widgets including trust bar and lead-generation form for a 3D scan-to-CAD and reverse engineering company.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    url: "",
-    image: "",
-    alt: "",
-  },
-  {
     name: "Stelios Restaurant",
     category: "Restaurant Website",
     description:
